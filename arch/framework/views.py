@@ -1,5 +1,5 @@
 # PageControllers
-from jinja import render
+from core.jinja import render
 
 
 def index_page(request):
