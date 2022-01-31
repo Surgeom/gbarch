@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+Contacts page
+{% endblock %}
+{% block content %}
 <form method="post">
     <p><input type="text" name="title" placeholder="Заголовок"></p>
     <p><input type="text" name="msg" placeholder="Текст сообщения"></p>
     <p><input type="email" name="email" placeholder="email"></p>
     <button type="submit">Отправить</button>
 </form>
-
-</body>
-</html>
+{% endblock %}
