@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+Create Course  page
+{% endblock %}
+{% block content %}
+<form method="post">
+    <select name="course_name" required="required">
+        <option value="">Выберите курс</option>
+        <option value="diving">Diving</option>
+        <option value="fight">Fight</option>
+    </select>
+    <select name="course_lvl" required="required">
+        <option value="">Выберите сложность</option>
+        <option value="newbie">newbie</option>
+        <option value="master">master</option>
+    </select>
+    <button type="submit">Добавить</button>
+</form>
+{% endblock %}
