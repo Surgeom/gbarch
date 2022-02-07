@@ -3,5 +3,15 @@
 Index page
 {% endblock %}
 {% block content %}
-<h1>Hello {{ name }}!</h1>
+<h1>Hello Friend!</h1>
+<p>У нас множество обучающих программ </p>
+<table>
+    {% for item in arr_of_courses %}
+    <tr>
+        <td>Курс {{ item.name }} , уровень - {{item.lvl}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a class="nav-link" href="/crc">Добавить курс</a>
+
 {% endblock %}
