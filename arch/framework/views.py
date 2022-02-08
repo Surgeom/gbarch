@@ -1,10 +1,12 @@
 # PageControllers
 from core.jinja import render
 from comp.models import SiteBrain
+from core.decorators import debug
 
 site = SiteBrain()
 
 
+@debug
 def index_page(request):
     # print(request)
     return '200 OK', render("index.html", arr_of_courses=site.courses)
