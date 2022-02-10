@@ -1,5 +1,9 @@
 class User:
-    pass
+    def __init__(self, type_of_user, name, surname, email):
+        self.name = name
+        self.surname = surname
+        self.email = email
+        self.type = type_of_user
 
 
 class Trainer(User):
@@ -17,8 +21,9 @@ class UsersFactory:
     }
 
     @classmethod
-    def create_user(cls, type_of_user):
-        return cls.dict_of_users[type_of_user]()
+    def create_user(cls, type_of_user, name, surname, email):
+        return cls.dict_of_users[type_of_user](name=name, surname=surname, email=email,
+                                               type_of_user=type_of_user)
 
 
 class Course:
@@ -61,8 +66,14 @@ class SiteBrain:
         self.students = []
         self.courses = []
 
-    def create_user(self, user_type):
-        return UsersFactory.create_user(type_of_user=user_type)
+    def create_user(self, user_type, name, surname, email):
+        cur_user = UsersFactory.create_user(name=name, surname=surname, email=email,
+                                            type_of_user=user_type)
+        if user_type == "student":
+            self.students.append(cur_user)
+        else:
+            self.trainers.append(cur_user)
+        return cur_user
 
     def create_course(self, course_type, course_lvl):
         return CoursesFactory.create_course(course_type, course_lvl)
@@ -73,5 +84,3 @@ class SiteBrain:
                 return course
             else:
                 return None
-
-

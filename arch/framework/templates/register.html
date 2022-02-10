@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+Register page
+{% endblock %}
+{% block content %}
+<form method="post">
+    <p><input type="text" name="name" placeholder="Ваше имя"></p>
+    <p><input type="text" name="surname" placeholder="Ваша фамилия "></p>
+    <p><input type="email" name="email" placeholder="email"></p>
+    <button type="submit">Отправить</button>
+</form>
+{% endblock %}
