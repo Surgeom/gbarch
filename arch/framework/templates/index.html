@@ -8,10 +8,15 @@ Index page
 <table>
     {% for item in arr_of_courses %}
     <tr>
-        <td>Курс {{ item.name }} , уровень - {{item.lvl}}</td>
+        <td>
+            Курс {{ item.name }} , уровень - {{item.lvl}} <a class="nav-link" href="/gtcrse">Записаться на курс</a>
+        </td>
     </tr>
+
     {% endfor %}
+
 </table>
 <a class="nav-link" href="/crc">Добавить курс</a>
+
 
 {% endblock %}
