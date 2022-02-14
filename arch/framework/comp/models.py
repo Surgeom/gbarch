@@ -11,7 +11,7 @@ class Trainer(User):
 
 
 class Student(User):
-    pass
+    courses = []
 
 
 class UsersFactory:
@@ -71,6 +71,7 @@ class SiteBrain:
                                             type_of_user=user_type)
         if user_type == "student":
             self.students.append(cur_user)
+            print("++++++++")
         else:
             self.trainers.append(cur_user)
         return cur_user
@@ -84,3 +85,20 @@ class SiteBrain:
                 return course
             else:
                 return None
+
+    def iterator(self):
+        return SiteBrainIterator(self.courses)
+
+
+class SiteBrainIterator:
+    def __init__(self, items):
+        self.indx = 0
+        self.items = items
+
+    def has_next(self):
+        return False if self.indx >= len(self.items) else True
+
+    def next(self):
+        item = self.items[self.indx]
+        self.indx += 1
+        return item

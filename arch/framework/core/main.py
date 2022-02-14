@@ -42,6 +42,7 @@ class Application:
         method = environ['REQUEST_METHOD']
         request = {}
         request['method'] = method
+        request['PATH_INFO'] = environ['PATH_INFO']
         if method == 'GET':
             if path in self.routes:
                 controller = self.routes[path]
