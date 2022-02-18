@@ -40,3 +40,16 @@ def create_course(request):
         except KeyError:
             return '200 OK', render("crCourse.html")
     return '200 OK', render("crCourse.html")
+
+
+def register(request):
+    if request['method'] == 'POST':
+        data = request['data']
+        name = data['name']
+        surname = data['surname']
+        email = data['email']
+        site.create_user(name=name, surname=surname, email=email, user_type='student')
+        print(site.students)
+        return '200 OK', render("index.html")
+    else:
+        return '200 OK', render("register.html")
